@@ -1,0 +1,25 @@
+body {
+  font: 16px/1.4 "Mulish", sans-serif;
+
+  background: #e3e9ff;
+}
+
+.toDoForm {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px -5px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+#header1 {
+  background: #70b3ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+
+.main {
+  padding: 30px;
+}

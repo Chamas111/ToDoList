@@ -11,10 +11,54 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+ 
 
     <title>To Do List</title>
-  </head>
-  <body>
+
+<!-- <body onload="move('sortable1')"> -->
+<body>
+  <div class="container">
+    <!--TO DO LIST-->
+    
+      <div class="col">
+        <div class="toDoForm" style="background-color:rgb(238, 238, 226);">
+          <header id="header1">
+            <h1>To Do List</h1>
+          </header>
+          <main class="main">
+            <form class="row">
+              <div class="d-flex">
+                <div class="p-2 w-100">  <input
+                  type="text"
+                  class="form-control"
+                  id=""
+                  placeholder="Write here your task ..."
+                /></div>
+                <div class="p-2 flex-shrink-1">
+                  <button type="button" class="btn btn-outline-info">
+                  +
+                </button>
+              </div>
+              </div>
+              <!--Hier the checkbox and tasks-->
+              <div>  
+                <ul><li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+              </div>
+                <div class="d-flex justify-content-center gap-4">
+                  <button type="button" class="btn btn-outline-info">Mark all done</button>
+                  <button type="button" class="btn btn-outline-info">Remove all</button>
+                </div>
+              
+                        
+            </form>
+
+          </main>
+        
+      </div>
+    </div>
     <script src="main.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

@@ -63,7 +63,7 @@
                   <!--Hier the checkbox and tasks-->
                   <div id="taskList" class="d-block my-5">
                     <!-- finished task-->
-                    <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
+                    <ul class="list-group list-group-horizontal rounded-0 bg-transparent" id="listTaskValue">
                       <li
                         class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent"
                       >
@@ -81,7 +81,7 @@
                       <li
                         class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
                       >
-                        <p class="lead fw-normal mb-0"><del>Done</del></p>
+                        <p class="lead fw-normal mb-0">Done</p>
                       </li>
                       <li
                         class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent"
@@ -89,20 +89,20 @@
                         <div
                           class="d-flex flex-row justify-content-end align-items-center mb-1"
                         >
-                          <a
-                            href="#!"
-                            class="text-info"
-                            data-mdb-toggle="tooltip"
-                            title="Edit todo"
-                            ><i class="bi-pen me-3"></i
-                          ></a>
-                          <a
-                            href="#!"
-                            class="text-danger"
-                            data-mdb-toggle="tooltip"
-                            title="Delete todo"
-                            ><i class="bi-trash3"></i
-                          ></a>
+                        <a
+                        href="#!"
+                        class="text-info"
+                        data-mdb-toggle="tooltip"
+                        title="Edit todo"
+                        ><i class="bi-pen me-3"></i
+                      ></a>
+                      <a
+                        href="#!"
+                        class="text-danger"
+                        data-mdb-toggle="tooltip"
+                        title="Delete todo"
+                        ><i class="bi-trash3"></i
+                      ></a>
                         </div>
                       </li>
                     </ul>
@@ -183,6 +183,7 @@
                           <a
                             href="#!"
                             class="text-info"
+                            id="edit"
                             data-mdb-toggle="tooltip"
                             title="Edit todo"
                             ><i class="bi-pen me-3"></i

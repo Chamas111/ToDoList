@@ -50,17 +50,18 @@
                     <div class="p-2 w-100">  <input
                       type="text"
                       class="form-control"
-                      id=""
+                      id="taskInput"
                       placeholder="Write here your task ..."
+                      required
                     /></div>
                     <div class="p-2 flex-shrink-1">
-                      <button type="button" class="btn btn-outline-info">
+                      <button type="button" id="addTask" class="btn btn-outline-info">
                       +
                     </button>
                   </div>
                   </div>
                   <!--Hier the checkbox and tasks-->
-                  <div class="d-block my-5">
+                  <div id="taskList" class="d-block my-5">
                     <!-- finished task-->
                     <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
                       <li

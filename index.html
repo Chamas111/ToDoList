@@ -10,215 +10,144 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>To Do List</title>
-
-<body>
+  </head>
+  <body>
     <header>
-        <!-- Nav bar v.1-->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-              <img src="images/logo_2big.png" alt="logo" width="" height="70" />
-            </a>
-            <form>
-              <button class="btn btn-sm btn-outline-secondary" type="button">
-                Log in
-              </button>
-              <button class="btn btn-sm btn-outline-secondary" type="button">
-                Sign in
-              </button>
-            </form>
-          </div>
-        </nav>
-        <!--END Nav bar v.1-->
+      <!-- Nav bar v.1-->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo_2big.png" alt="logo" width="" height="70" />
+          </a>
+          <form>
+            <button class="btn btn-sm btn-outline-secondary" type="button">
+              Log in
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" type="button">
+              Sign in
+            </button>
+          </form>
+        </div>
+      </nav>
+      <!--END Nav bar v.1-->
     </header>
     <!-- main body ToDo Form-->
     <main>
       <div class="container">
         <!--TO DO LIST-->
-        
-          <div class="col">
-            <div class="toDoForm" style="background-color:rgb(238, 238, 226);">
-              <header id="header1">
-                <h1>To Do List</h1>
-              </header>
-              <div class="main">
-                <form class="row">
-                  <div class="d-flex">
-                    <div class="p-2 w-100">  <input
+
+        <div class="col">
+          <div class="toDoForm" style="background-color: rgb(238, 238, 226)">
+            <header id="header1">
+              <h1>To Do List</h1>
+            </header>
+            <div class="main">
+              <form class="row">
+                <div class="d-flex">
+                  <div class="p-2 w-100">
+                    <input
                       type="text"
                       class="form-control"
                       id="taskInput"
                       placeholder="Write here your task ..."
                       required
-                    /></div>
-                    <div class="p-2 flex-shrink-1">
-                      <button type="button" id="addTask" class="btn btn-outline-info">
+                    />
+                  </div>
+                  <div class="p-2 flex-shrink-1">
+                    <button
+                      type="button"
+                      id="addTask"
+                      class="btn btn-outline-info"
+                    >
                       +
                     </button>
                   </div>
-                  </div>
-                  <!--Hier the checkbox and tasks-->
-                  <div id="taskList" class="d-block my-5">
-                    <!-- finished task-->
-                    
-                 
-                      <!-- finished task-->
-                      <ul id="list-group list-group-horizontal rounded-0 bg-transparent">
-                        <li><input type="checkbox">
-                          <label>Pay Bills</label>
-                          <input type="text">
-                          <button class="edit">Edit</button>
-                          <button class="delete">Delete</button>
-                        </li>
-                    <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-                      <li
-                        class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent"
+                </div>
+                <!--Hier the checkbox and tasks-->
+                <div id="taskList" class="d-block my-5">
+                  <!-- prototype task-->
+                  <ul class="list-unstyled">
+                    <li class="d-flex">
+                      <input type="checkbox" />
+                      <div
+                        class="px-3 py-1 d-flex align-items-center flex-grow-1"
                       >
-                        <div class="form-check">
-                          <input
-                            class="form-check-input me-0"
-                            type="checkbox"
-                            value=""
-                            id="flexCheckChecked1"
-                            aria-label="..."
-                            checked
-                          />
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
+                        <p class="lead fw-normal mb-0">To do</p>
+                      </div>
+
+                      <div
+                        class="d-flex flex-row justify-content-end align-items-center mb-1"
                       >
-                        <p class="lead fw-normal mb-0">Done</p>
-                      </li>
-                      <li
-                        class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent"
-                      >
-                        <div
-                          class="d-flex flex-row justify-content-end align-items-center mb-1"
-                        >
                         <a
-                        href="#!"
-                        class="text-info"
-                        data-mdb-toggle="tooltip"
-                        title="Edit todo"
-                        ><i class="bi-pen me-3"></i
-                      ></a>
-                      <a
-                        href="#!"
-                        class="text-danger"
-                        data-mdb-toggle="tooltip"
-                        title="Delete todo"
-                        ><i class="bi-trash3"></i
-                      ></a>
-                        </div>
-                      </li>
-                    </ul>
-                    <!-- still to do task-->
-                    <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-                      <li
-                        class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent"
+                          href="#!"
+                          class="text-info"
+                          data-mdb-toggle="tooltip"
+                          title="Edit todo"
+                          ><i class="bi-pen me-3"></i
+                        ></a>
+                        <a
+                          href="#!"
+                          class="text-danger"
+                          data-mdb-toggle="tooltip"
+                          title="Delete todo"
+                          ><i class="bi-trash3"></i
+                        ></a>
+                      </div>
+                    </li>
+                    <li class="d-flex">
+                      <input type="checkbox" checked />
+                      <div
+                        class="px-3 py-1 d-flex align-items-center flex-grow-1"
                       >
-                        <div class="form-check">
-                          <input
-                            class="form-check-input me-0"
-                            type="checkbox"
-                            value=""
-                            id="flexCheckChecked2"
-                            aria-label="..."
-                          />
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
-                      >
-                        <p class="lead fw-normal mb-0">Task to do</p>
-                      </li>
-                      <li
-                        class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent"
-                      >
-                        <div
-                          class="d-flex flex-row justify-content-end align-items-center mb-1"
+                        <p
+                          class="lead fw-normal mb-0 text-decoration-line-through"
                         >
-                          <a
-                            href="#!"
-                            class="text-info"
-                            data-mdb-toggle="tooltip"
-                            title="Edit todo"
-                            ><i class="bi-pen me-3"></i
-                          ></a>
-                          <a
-                            href="#!"
-                            class="text-danger"
-                            data-mdb-toggle="tooltip"
-                            title="Delete todo"
-                            ><i class="bi-trash3"></i
-                          ></a>
-                        </div>
-                      </li>
-                    </ul>
-                    <!-- task in edit mode-->
-                    <ul class="list-group list-group-horizontal rounded-0 bg-transparent">
-                      <li
-                        class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent"
+                          Done
+                        </p>
+                      </div>
+
+                      <div
+                        class="d-flex flex-row justify-content-end align-items-center mb-1"
                       >
-                        <div class="form-check">
-                          <input
-                            class="form-check-input me-0"
-                            type="checkbox"
-                            value=""
-                            id="flexCheckChecked3"
-                            aria-label="..."
-                          />
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent"
-                      >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="formGroupExampleInput"
-                          placeholder="Task, that is being edited"
-                        />
-                      </li>
-                      <li
-                        class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent"
-                      >
-                        <div
-                          class="d-flex flex-row justify-content-end align-items-center mb-1"
-                        >
-                          <a
-                            href="#!"
-                            class="text-info"
-                            id="edit"
-                            data-mdb-toggle="tooltip"
-                            title="Edit todo"
-                            ><i class="bi-pen me-3"></i
-                          ></a>
-                          <a
-                            href="#!"
-                            class="text-danger"
-                            data-mdb-toggle="tooltip"
-                            title="Delete todo"
-                            ><i class="bi-trash3"></i
-                          ></a>
-                        </div>
-                      </li>
-                    </ul>
-                    
-                  </div>
-                    <div class="d-flex justify-content-center gap-4">
-                      <button type="button" class="btn btn-outline-info">Mark all done</button>
-                      <button type="button" class="btn btn-outline-info">Remove all</button>
-                    </div>       
-                </form>
-              </div>
+                        <a
+                          href="#!"
+                          class="text-info"
+                          data-mdb-toggle="tooltip"
+                          title="Edit todo"
+                          ><i class="bi-pen me-3"></i
+                        ></a>
+                        <a
+                          href="#!"
+                          class="text-danger"
+                          data-mdb-toggle="tooltip"
+                          title="Delete todo"
+                          ><i class="bi-trash3"></i
+                        ></a>
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- prototype task end-->
+                </div>
+                <div class="d-flex justify-content-center gap-4">
+                  <button type="button" class="btn btn-outline-info">
+                    Mark all done
+                  </button>
+                  <button type="button" class="btn btn-outline-info">
+                    Remove all
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </main>
     <footer></footer>
 
     <script src="main.js"></script>

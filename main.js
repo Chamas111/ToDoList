@@ -74,6 +74,13 @@ ul.addEventListener("click", (event) => {
       ul.removeChild(li);
     } else if (button.className === "bi-pen me-3") {
       const span = li.firstElementChild;
+      console.log("dfdfs", span);
+      let editElement = prompt("Please enter your change", span.innerText);
+      if (editElement != null) {
+        span.innerHTML = editElement;
+      }
+      /*
+      const span = li.firstElementChild;
       const input = document.createElement("input");
       input.type = "text";
       input.value = span.textContent;
@@ -85,14 +92,19 @@ ul.addEventListener("click", (event) => {
       button.textContent = "save";
       //console.log(button.className);
     } else if (button.textContent === "save") {
-      const input = li.firstElementChild;
+      //const input = li.firstElementChild;
 
       const span = document.createElement("span");
-
+      console.log("sssssssssss", span);
       span.textContent = input.value;
       li.insertBefore(span, input);
       li.removeChild(input);
       button.textContent = "bi-pen me-3";
+    }
+  }
+});
+function editTask() {
+ */
     }
   }
 });

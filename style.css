@@ -4,8 +4,7 @@
 
 body {
   font: 16px/1.4 "Mulish", sans-serif;
-
-  background: #e3e9ff;
+  background: rgba(1, 176, 181, 0.5);
 }
 
 .toDoForm {
@@ -17,13 +16,27 @@ body {
 }
 
 #header1 {
-  background: #70b3ff;
-  color: #fff;
+  background: #008791;
+  color: white;
   padding: 10px 20px;
   border-radius: 5px 5px 0 0;
   text-align: center;
 }
 
+#addTask,
+#markAll,
+#removeAll {
+  --bs-btn-color: #008791;
+  --bs-btn-hover-color: white;
+  --bs-btn-border-color: #008791;
+  --bs-border-width: 0.1em;
+  --bs-btn-hover-bg: #008791;
+  --bs-btn-hover-border-color: #008791;
+}
+
+.taskDone {
+  --bs-form-check-input-bg: #008791;
+}
 .main {
   padding: 30px;
 }

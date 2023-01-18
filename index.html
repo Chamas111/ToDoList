@@ -43,7 +43,7 @@
         <!--TO DO LIST-->
 
         <div class="col">
-          <div class="toDoForm" style="background-color: rgb(238, 238, 226)">
+          <div class="toDoForm">
             <header id="header1">
               <h1>To Do List</h1>
             </header>
@@ -74,7 +74,7 @@
                   <!-- prototype task-->
                   <ul class="list-unstyled">
                     <li class="d-flex">
-                      <input type="checkbox" />
+                      <input class="taskDone" type="checkbox" />
                       <div
                         class="px-3 py-1 d-flex align-items-center flex-grow-1"
                       >
@@ -135,10 +135,18 @@
                   <!-- prototype task end-->
                 </div>
                 <div class="d-flex justify-content-center gap-4">
-                  <button type="button" class="btn btn-outline-info">
+                  <button
+                    id="removeAll"
+                    type="button"
+                    class="btn btn-outline-info"
+                  >
                     Mark all done
                   </button>
-                  <button type="button" class="btn btn-outline-info">
+                  <button
+                    id="markAll"
+                    type="button"
+                    class="btn btn-outline-info"
+                  >
                     Remove all
                   </button>
                 </div>

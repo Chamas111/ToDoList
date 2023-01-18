@@ -48,109 +48,45 @@
               <h1>To Do List</h1>
             </header>
             <div class="main">
-              <form class="row">
-                <div class="d-flex">
-                  <div class="p-2 w-100">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="taskInput"
-                      placeholder="Write here your task ..."
-                      required
-                    />
-                  </div>
-                  <div class="p-2 flex-shrink-1">
-                    <button
-                      type="button"
-                      id="addTask"
-                      class="btn btn-outline-info"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-                <!--Hier the checkbox and tasks-->
-                <div id="taskList" class="d-block my-5">
-                  <!-- prototype task-->
-                  <ul class="list-unstyled">
-                    <li class="d-flex">
-                      <input class="taskDone" type="checkbox" />
-                      <div
-                        class="px-3 py-1 d-flex align-items-center flex-grow-1"
-                      >
-                        <p class="lead fw-normal mb-0">To do</p>
-                      </div>
-
-                      <div
-                        class="d-flex flex-row justify-content-end align-items-center mb-1"
-                      >
-                        <a
-                          href="#!"
-                          class="text-info"
-                          data-mdb-toggle="tooltip"
-                          title="Edit todo"
-                          ><i class="bi-pen me-3"></i
-                        ></a>
-                        <a
-                          href="#!"
-                          class="text-danger"
-                          data-mdb-toggle="tooltip"
-                          title="Delete todo"
-                          ><i class="bi-trash3"></i
-                        ></a>
-                      </div>
-                    </li>
-                    <li class="d-flex">
-                      <input type="checkbox" checked />
-                      <div
-                        class="px-3 py-1 d-flex align-items-center flex-grow-1"
-                      >
-                        <p
-                          class="lead fw-normal mb-0 text-decoration-line-through"
-                        >
-                          Done
-                        </p>
-                      </div>
-
-                      <div
-                        class="d-flex flex-row justify-content-end align-items-center mb-1"
-                      >
-                        <a
-                          href="#!"
-                          class="text-info"
-                          data-mdb-toggle="tooltip"
-                          title="Edit todo"
-                          ><i class="bi-pen me-3"></i
-                        ></a>
-                        <a
-                          href="#!"
-                          class="text-danger"
-                          data-mdb-toggle="tooltip"
-                          title="Delete todo"
-                          ><i class="bi-trash3"></i
-                        ></a>
-                      </div>
-                    </li>
-                  </ul>
-                  <!-- prototype task end-->
-                </div>
-                <div class="d-flex justify-content-center gap-4">
-                  <button
-                    id="removeAll"
-                    type="button"
-                    class="btn btn-outline-info"
-                  >
-                    Mark all done
-                  </button>
-                  <button
-                    id="markAll"
-                    type="button"
-                    class="btn btn-outline-info"
-                  >
-                    Remove all
-                  </button>
-                </div>
+              <form class="d-flex p-2 w-100 gap-3" id="inputTask">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="taskInput"
+                  placeholder="Write here your task ..."
+                  required
+                />
+                <button
+                  type="submit"
+                  name="submit"
+                  value="submit"
+                  class="btn btn-outline-info"
+                >
+                  +
+                </button>
+                <!--<button type="button" id="addTask" class="btn btn-outline-info">-->
               </form>
+
+              <ul id="incomplete-tasks">
+                <li>
+                  <span>John Smith</span>
+                  <label>Confirmed<input type="checkbox" /></label>
+
+                  
+                <i name="button" class="bi-pen me-3"></i>
+                  
+                 <i name="button" class="bi-trash3"></i></button>
+                </li>
+              </ul>
+              <!-- prototype task end-->
+            </div>
+            <div class="d-flex justify-content-center gap-4 p-5">
+              <button id="removeAll" type="button" class="btn btn-outline-info">
+                Mark all done
+              </button>
+              <button id="markAll" type="button" class="btn btn-outline-info">
+                Remove all
+              </button>
             </div>
           </div>
         </div>

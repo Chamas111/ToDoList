@@ -36,7 +36,7 @@ let ul = document.querySelector(".list-group");
 //let list_Task_Value = document.getElementById("listTaskValue");
 addButton.addEventListener("click", (e) => {
   if (inputTask.value.trim() != 0) {
-    let newItem = document.createElement("div");
+    let newItem = document.createElement("ul");
     newItem.classList.add("list-group");
     newItem.innerHTML =
       '<ul class="list-group list-group-horizontal rounded-0 bg-transparent" id="listTaskValue"><li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent"><div class="form-check"><input class="form-check-input me-0"      type="checkbox" value="" id="flexCheckChecked1" aria-label="..." checked /></div></li><li class="list-group-item px-3 py-1 d-flex lign-items-center flex-grow-1 border-0 bg-transparent" >  <p class="lead fw-normal mb-0">' +
@@ -59,12 +59,12 @@ task_List.addEventListener("click", (e) => {
   }
   // Edit task is not finished yet!!
   else if (target.classList.contains("bi-pen")) {
-    let item = target.parentElement.parentElement.parentElement;
-    const li = item.parentNode;
-    const input = document.createElement("input");
-
-    console.log(paragraph);
-    input.type = "text";
-    input.value = paragraph.textContent;
+    let childElements = ul.children;
+    childElements.innerHTML = "<input /> ";
+    // const li = item.parentNode;
+    // const input = document.createElement("input");
+    console.log(childElements);
+    // li.innerHTML =
+    // ' <input type="text" class="lead"  placeholder="Task, that is being edited"/>';
   }
 });

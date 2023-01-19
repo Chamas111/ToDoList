@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="shortcut icon"
+      href="./images/logo_2big.png"
+      type="image/x-icon"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
@@ -48,7 +53,7 @@
               <h1>To Do List</h1>
             </header>
             <div class="main">
-              <form class="d-flex p-2 w-100 gap-3" id="inputTask">
+              <form class="d-flex pb-2 w-100 gap-3" id="inputTask">
                 <input
                   type="text"
                   class="form-control"
@@ -61,24 +66,15 @@
                   name="submit"
                   value="submit"
                   class="btn btn-outline-info"
+                  id="addTask"
                 >
                   +
                 </button>
                 <!--<button type="button" id="addTask" class="btn btn-outline-info">-->
               </form>
-
-              <ul id="incomplete-tasks">
-                <li>
-                  <span>John Smith</span>
-                  <label>Confirmed<input type="checkbox" /></label>
-
-                  
-                <i name="button" class="bi-pen me-3"></i>
-                  
-                 <i name="button" class="bi-trash3"></i></button>
-                </li>
+              <ul id="incomplete-tasks" class="list-unstyled">
+                <!-- Unordered list for tasks-->
               </ul>
-              <!-- prototype task end-->
             </div>
             <div class="d-flex justify-content-center gap-4 p-5">
               <button id="removeAll" type="button" class="btn btn-outline-info">

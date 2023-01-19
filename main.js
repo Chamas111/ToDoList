@@ -11,23 +11,40 @@ const ul = document.querySelector("#incomplete-tasks");
 
 function createLi() {
   const li = document.createElement("li");
-  const span = document.createElement("span");
+  li.classList.add("d-flex");
+  const divWrap = document.createElement("div");
+  divWrap.classList.add(
+    "taskTextArea",
+    "px-3",
+    "py-1",
+    "d-flex",
+    "align-items-center",
+    "flex-grow-1"
+  );
+  const span = document.createElement("p");
+  span.classList.add("lead", "fw-normal", "mb-0", "cross-out");
   span.textContent = input.value;
-  const label = document.createElement("label");
-  label.textContent = "confirmed";
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
+  const btnWrap = document.createElement("div");
+  btnWrap.classList.add(
+    "d-flex",
+    "flex-row",
+    "justify-content-end",
+    "align-items-center",
+    "mb-1"
+  );
   const editBtn = document.createElement("i");
-  //editBtn.innerHTML = '<i class="bi-pen me-3"></i>';
   editBtn.className = "bi-pen me-3";
   const removeBtn = document.createElement("i");
-  //removeBtn.innerHTML = '<i class="bi-trash3"></i>';
   removeBtn.className = "bi-trash3";
-  li.appendChild(span);
-  li.appendChild(label);
-  label.appendChild(checkbox);
-  li.appendChild(editBtn);
-  li.appendChild(removeBtn);
+
+  li.appendChild(checkbox);
+  li.appendChild(divWrap);
+  divWrap.appendChild(span);
+  li.appendChild(btnWrap);
+  btnWrap.appendChild(editBtn);
+  btnWrap.appendChild(removeBtn);
 
   return li;
 }
@@ -48,13 +65,30 @@ form.addEventListener("submit", (event) => {
 ul.addEventListener("change", (event) => {
   const checkbox = event.target;
   const checked = checkbox.checked;
-  const li = checkbox.parentNode.parentNode;
+  const li = checkbox.parentNode;
   if (checked) {
-    li.className = "responded";
+    li.classList.add("responded");
+    li.getElementsByClassName("cross-out")[0].classList.add(
+      "text-decoration-line-through"
+    );
   } else {
-    li.className = "";
+    li.classList.remove("responded");
+    li.getElementsByClassName("cross-out")[0].classList.remove(
+      "text-decoration-line-through"
+    );
   }
 });
+
+/* editing task */
+function editTask(button) {
+  const li = button.parentNode.parentNode;
+  const updatedTask = document.createElement("input");
+  const parent = document.getElementsByClassName("taskTextArea")[0];
+  const neighbor = li.getElementsByClassName("cross-out")[0];
+  console.log("edit mode", li);
+  updatedTask.value = neighbor.innerHTML;
+  parent.replaceChild(updatedTask, neighbor);
+}
 
 /* Button actions for each task */
 
@@ -66,16 +100,17 @@ ul.addEventListener("click", (event) => {
     //console.log(event.target);
     console.log("gggggggggggggg", "BUTTON");
     const button = event.target;
-    const li = button.parentNode;
+    const li = button.parentNode.parentNode;
     const ul = li.parentNode;
     console.log(li);
     console.log(ul);
     if (button.className === "bi-trash3") {
+      console.log(ul);
+
       ul.removeChild(li);
     } else if (button.className === "bi-pen me-3") {
-      const span = li.firstElementChild;
-      console.log("dfdfs", span);
-      let editElement = prompt("Please enter your change", span.innerText);
+      editTask(button);
+      /*let editElement = prompt("Please enter your change", span.innerText);
       if (editElement != null) {
         span.innerHTML = editElement;
       }

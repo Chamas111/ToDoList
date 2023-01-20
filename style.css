@@ -40,11 +40,11 @@ body {
 .main {
   padding: 30px;
 }
-li > .bi-trash3:hover {
+.bi-trash3:hover {
   color: #cf2323;
   cursor: pointer;
 }
-li > .bi-pen:hover {
+.bi-pen:hover {
   color: blue;
   cursor: pointer;
 }

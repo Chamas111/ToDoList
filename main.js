@@ -143,3 +143,20 @@ function editTask() {
     }
   }
 });
+
+/* Mark All */
+function checkAll() {
+  let checkboxes = document.querySelectorAll("input[type ='checkbox']");
+  let chkBox = checkboxes.length;
+
+  const checked = (checkboxes.checked = false);
+
+  for (let i = 0; i < chkBox; i++) {
+    const para = document.getElementsByTagName("p");
+    const li = document.getElementsByTagName("li");
+
+    para[i].classList.add("text-decoration-line-through");
+    li[i].classList.add("responded");
+    checkboxes[i].checked = true;
+  }
+}

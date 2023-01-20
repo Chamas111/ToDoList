@@ -25,13 +25,16 @@ body {
 
 #addTask,
 #markAll,
-#removeAll {
+#removeAll,
+#login,
+#signup {
   --bs-btn-color: #008791;
   --bs-btn-hover-color: white;
   --bs-btn-border-color: #008791;
   --bs-border-width: 0.1em;
   --bs-btn-hover-bg: #008791;
   --bs-btn-hover-border-color: #008791;
+  --bs-btn-active-bg: rgba(1, 176, 181, 0.9);
 }
 
 .taskDone {

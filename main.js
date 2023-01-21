@@ -1,15 +1,11 @@
 const form = document.querySelector("#inputTask");
-console.log("ffff", form);
-const input = document.querySelector("input");
-//console.log("cccc", input);
-const main = document.querySelector(".main");
-//console.log("ddd", main);
-const ul = document.querySelector("#incomplete-tasks");
-//const editBtn = document.querySelector(".bi-pen", ".me-3");
-//const removeBtn = document.querySelector(".bi-trash3");
 
-//console.log("ddd", ul);
-//let Active = true;
+const input = document.querySelector("input");
+
+const main = document.querySelector(".main");
+
+const ul = document.querySelector("#incomplete-tasks");
+
 /* Create Task */
 
 // ----------------Add new Task---------------------
@@ -103,6 +99,7 @@ ul.addEventListener("change", (event) => {
 });
 
 /* Mark All */
+
 function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
   let allChecked;
@@ -117,21 +114,32 @@ function checkAll() {
 
   if (allChecked) {
     for (let i = 0; i < checkboxes.length; i++) {
-      const para = document.getElementsByTagName("input");
+      //const para = document.querySelectorAll("input[type ='checkbox']");
       const li = document.getElementsByTagName("li");
-      para[i].classList.remove("text-decoration-line-through");
-      li[i].classList.remove("responded");
+
+      li[i].classList.remove("responded", "text-decoration-line-through");
+      //li[i].classList.remove("responded");
       checkboxes[i].checked = false;
       document.getElementById("markAll").textContent = "Mark all";
     }
   } else {
     for (let i = 0; i < checkboxes.length; i++) {
-      const para = document.getElementsByTagName("input");
+      // const para = document.querySelectorAll("input[type ='checkbox']");
       const li = document.getElementsByTagName("li");
-      para[i].classList.add("text-decoration-line-through");
-      li[i].classList.add("responded");
+      // para[i].classList.add("text-decoration-line-through");
+      li[i].classList.add("responded", "text-decoration-line-through");
       checkboxes[i].checked = true;
       document.getElementById("markAll").textContent = "Unmark all";
+    }
+  }
+}
+
+function removeAll() {
+  const checkboxes = document.querySelectorAll("input[type ='checkbox']");
+
+  for (var checkbox of checkboxes) {
+    if (checkbox.checked) {
+      ul.removeChild(checkbox.parentElement);
     }
   }
 }

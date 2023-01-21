@@ -86,15 +86,15 @@ ul.addEventListener("change", (event) => {
   const checked = checkbox.checked;
   const li = checkbox.parentNode;
   if (checked) {
-    li.classList.add("responded");
-    li.getElementsByClassName("cross-out")[0].classList.add(
-      "text-decoration-line-through"
-    );
+    li.classList.add("responded", "text-decoration-line-through");
+    // li.getElementsByClassName("cross-out")[0].classList.add(
+    //"text-decoration-line-through"
+    // );
   } else {
-    li.classList.remove("responded");
-    li.getElementsByClassName("cross-out")[0].classList.remove(
-      "text-decoration-line-through"
-    );
+    li.classList.remove("responded", "text-decoration-line-through");
+    // li.getElementsByClassName("cross-out")[0].classList.remove(
+    //  "text-decoration-line-through"
+    // );
   }
 });
 
@@ -102,6 +102,7 @@ ul.addEventListener("change", (event) => {
 
 function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
+
   let allChecked;
   for (var i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked !== true) {

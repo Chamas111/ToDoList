@@ -87,14 +87,9 @@ ul.addEventListener("change", (event) => {
   const li = checkbox.parentNode;
   if (checked) {
     li.classList.add("responded", "text-decoration-line-through");
-    // li.getElementsByClassName("cross-out")[0].classList.add(
-    //"text-decoration-line-through"
-    // );
+    document.getElementById("markAll").textContent = "Unmark all";
   } else {
     li.classList.remove("responded", "text-decoration-line-through");
-    // li.getElementsByClassName("cross-out")[0].classList.remove(
-    //  "text-decoration-line-through"
-    // );
   }
 });
 
@@ -102,35 +97,28 @@ ul.addEventListener("change", (event) => {
 
 function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
+  const markAll = document.getElementById("markAll");
 
-  let allChecked;
-  for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked !== true) {
-      allChecked = false;
-      break;
-    } else {
-      allChecked = true;
-    }
-  }
+  if (markAll.textContent == "Mark all") {
+    for (var checkbox of checkboxes) {
+      if (!checkbox.checked) {
+        checkbox.parentElement.classList.add(
+          "responded",
+          "text-decoration-line-through"
+        );
+        checkbox.checked = true;
+      }
 
-  if (allChecked) {
-    for (let i = 0; i < checkboxes.length; i++) {
-      //const para = document.querySelectorAll("input[type ='checkbox']");
-      const li = document.getElementsByTagName("li");
-
-      li[i].classList.remove("responded", "text-decoration-line-through");
-      //li[i].classList.remove("responded");
-      checkboxes[i].checked = false;
-      document.getElementById("markAll").textContent = "Mark all";
+      document.getElementById("markAll").textContent = "Unmark all";
     }
   } else {
-    for (let i = 0; i < checkboxes.length; i++) {
-      // const para = document.querySelectorAll("input[type ='checkbox']");
-      const li = document.getElementsByTagName("li");
-      // para[i].classList.add("text-decoration-line-through");
-      li[i].classList.add("responded", "text-decoration-line-through");
-      checkboxes[i].checked = true;
-      document.getElementById("markAll").textContent = "Unmark all";
+    for (var checkbox of checkboxes) {
+      checkbox.checked = false;
+      checkbox.parentElement.classList.remove(
+        "responded",
+        "text-decoration-line-through"
+      );
+      markAll.textContent = "Mark all";
     }
   }
 }

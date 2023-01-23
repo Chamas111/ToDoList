@@ -25,6 +25,7 @@ form.addEventListener("submit", (event) => {
     "flex-grow-1"
   );
   const inputEl = document.createElement("input");
+
   inputEl.classList.add("lead", "fw-normal", "mb-0", "cross-out");
   inputEl.setAttribute("readonly", "readonly");
   inputEl.type = "text";
@@ -56,6 +57,16 @@ form.addEventListener("submit", (event) => {
   btnWrap.appendChild(removeBtn);
 
   ul.appendChild(li);
+
+  let localItems = JSON.parse(localStorage.getItem("localitem"));
+  if (localItems === null) {
+    tasklist = [];
+  } else {
+    tasklist = localItems;
+  }
+  tasklist.push(input.value);
+  localStorage.setItem("localitem", JSON.stringify(tasklist));
+
   input.value = "";
 
   /* Edit and Remove Btn */
@@ -74,10 +85,23 @@ form.addEventListener("submit", (event) => {
 
   removeBtn.addEventListener("click", () => {
     if ((removeBtn.className = "bi-trash3")) {
+      //deleteItem(li);
+      console.log("li", li);
       ul.removeChild(li);
+      deleteItem();
     }
   });
 });
+/*delete from LocalStrage */
+
+function deleteItem() {
+  let localItems = JSON.parse(localStorage.getItem("localitem"));
+
+  let index = localItems.filter((Element) => localItems.Element == "localitem");
+  console.log("index", index);
+  tasklist.splice(index[0], 1);
+  localStorage.setItem("localitem", JSON.stringify(tasklist));
+}
 
 /* checkbox confirmation */
 

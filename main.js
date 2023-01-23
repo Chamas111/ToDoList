@@ -50,6 +50,7 @@ form.addEventListener("submit", (event) => {
   removeBtn.className = "bi-trash3";
 
   li.appendChild(checkbox);
+  console.log(li.appendChild(checkbox));
   li.appendChild(divWrap);
   divWrap.appendChild(inputEl);
   li.appendChild(btnWrap);
@@ -57,6 +58,8 @@ form.addEventListener("submit", (event) => {
   btnWrap.appendChild(removeBtn);
 
   ul.appendChild(li);
+
+  /*Add to localStorage*/
 
   let localItems = JSON.parse(localStorage.getItem("localitem"));
   if (localItems === null) {

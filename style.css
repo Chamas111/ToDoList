@@ -104,3 +104,7 @@ li {
 #incomplete-tasks li button:hover {
   opacity: 0.7;
 }
+.pp {
+  transition: 0.4s;
+  border-color: #70b3ff;
+}

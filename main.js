@@ -6,6 +6,7 @@ const main = document.querySelector(".main");
 
 const ul = document.querySelector("#incomplete-tasks");
 let items = [];
+let checkLists = [];
 
 function saveToLocalStorage() {
   localStorage.setItem("item", JSON.stringify(items));
@@ -13,6 +14,15 @@ function saveToLocalStorage() {
 
 (function () {
   items = JSON.parse(localStorage.getItem("item")) || [];
+  create();
+})();
+
+function saveCheckToLocalStorage() {
+  localStorage.setItem("checkList", JSON.stringify(checkLists));
+}
+
+(function () {
+  checkLists = JSON.parse(localStorage.getItem("checkList")) || [];
   create();
 })();
 
@@ -29,6 +39,7 @@ form.addEventListener("submit", (event) => {
     // e.target.reset();
     saveToLocalStorage();
     create();
+    saveCheckToLocalStorage();
   }
 });
 
@@ -76,6 +87,7 @@ function create() {
     editButton.onclick = () =>
       handleEdit(index, item, divWrap, span, editButton, btnWrap);
     deleteButton.onclick = () => handleDelete(index, li);
+    checkbox.onclick = () => confirmation(index, li, checkbox, span);
     editButton.textContent = "Edit";
     deleteButton.textContent = "Delete";
     ul.appendChild(li);
@@ -114,11 +126,12 @@ function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
 function handleDelete(index, listItem) {
   items.splice(index, 1);
   saveToLocalStorage();
+  saveCheckToLocalStorage();
   ul.removeChild(listItem);
 }
 
 /* checkbox confirmation */
-
+/* 
 ul.addEventListener("change", (event) => {
   event.preventDefault();
   const checkbox = event.target;
@@ -133,7 +146,34 @@ ul.addEventListener("change", (event) => {
     li.classList.remove("responded");
     // div.classList.remove("text-decoration-line-through");
   }
-});
+}); */
+function confirmation(index, listItem, chk, span) {
+  console.log("index", index);
+  console.log("listItem", listItem);
+  //console.log("div", div);
+  console.log("span", span);
+  console.log("chk", chk);
+  //const checked = checkbox.checked;
+  // const li = checkbox.parentNode;
+  if (chk.checked === true) {
+    listItem.classList.add("responded");
+    //div.classList.add("text-decoration-line-through");
+    document.getElementById("markAll").textContent = "Unmark all";
+    //const result = document.querySelector(".taskTextArea");
+    //const span = result.ELEMENT_NODE;
+    //console.log(span);
+    checkLists.push(span.textContent);
+    saveCheckToLocalStorage();
+  } else {
+    listItem.classList.remove("responded");
+    // div.classList.remove("text-decoration-line-through");
+    //checkLists.splice(span.textContent, 1);
+    checkLists.splice(checkLists.indexOf(span.textContent), 1);
+
+    saveCheckToLocalStorage();
+  }
+}
+
 /* Mark All */
 
 function checkAll() {

@@ -102,7 +102,7 @@ function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
       if (index === i) {
         return newItem;
       } else {
-        return newItem;
+        return theItem;
       }
     });
     saveToLocalStorage();
@@ -118,21 +118,7 @@ function handleDelete(index, listItem) {
 }
 
 /* checkbox confirmation */
-/*
-const checkbox = document.querySelector(".input[type ='checkbox']");
-ul.addEventListener("change", (event) => {
-  const checkbox = event.target;
-  const checked = checkbox.checked;
-  const div = document.querySelector(".taskTextArea");
-  if (checked) {
-    div.classList.add("text-decoration-line-through");
-    //ul.classList.add(".responded");
-    document.getElementById("markAll").textContent = "Unmark all";
-  } else {
-    div.classList.remove("text-decoration-line-through");
-  }
-});
-*/
+
 ul.addEventListener("change", (event) => {
   event.preventDefault();
   const checkbox = event.target;
@@ -147,7 +133,6 @@ ul.addEventListener("change", (event) => {
     li.classList.remove("responded");
     // div.classList.remove("text-decoration-line-through");
   }
-  saveToLocalStorage();
 });
 /* Mark All */
 

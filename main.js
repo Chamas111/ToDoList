@@ -13,6 +13,7 @@ function saveToLocalStorage() {
 
 (function () {
   items = JSON.parse(localStorage.getItem("item")) || [];
+
   create();
 })();
 
@@ -152,19 +153,21 @@ ul.addEventListener("change", (event) => {
 } */
 function confirmation(index, listItem, chk, span) {
   console.log("hellooooooooooooooooo");
+
   items.forEach((todo) => {
     if (!todo.isCompleted) {
       console.log("trueeeeeee");
       span.style.textDecoration = "line-through";
       todo.isCompleted = true;
-      chk.checked = true;
+      //chk.checked = true;
     } else if (todo.isCompleted) {
       console.log("falseeeee");
       span.style.textDecoration = "none";
       todo.isCompleted = false;
-      chk.checked = false;
+      //chk.checked = false;
     }
   });
+  saveToLocalStorage();
 }
 /* /* /* Mark All */
 

@@ -76,6 +76,7 @@ function create() {
       handleEdit(index, item, divWrap, span, editButton, btnWrap);
     deleteButton.onclick = () => handleDelete(index, li);
     checkbox.onclick = () => confirmation(index, li, checkbox, span);
+
     editButton.textContent = "Edit";
     deleteButton.textContent = "Delete";
     ul.appendChild(li);
@@ -136,27 +137,38 @@ ul.addEventListener("change", (event) => {
     // div.classList.remove("text-decoration-line-through");
   }
 }); */
-function confirmation(index, listItem, chk, span) {
-  console.log("index", index);
-  console.log("listItem", listItem);
 
-  console.log("span", span);
-  console.log("chk", chk);
-
-  if (chk.checked === true) {
+/*   if (chk.checked === true) {
     listItem.classList.add("responded");
     items[index].isCompleted = !items[index].isCompleted;
     document.getElementById("markAll").textContent = "Unmark all";
+    
   } else {
     listItem.classList.remove("responded");
     items[index].isCompleted = !items[index].isCompleted;
+    
   }
   saveToLocalStorage();
+} */
+function confirmation(index, listItem, chk, span) {
+  console.log("hellooooooooooooooooo");
+  items.forEach((todo) => {
+    if (!todo.isCompleted) {
+      console.log("trueeeeeee");
+      span.style.textDecoration = "line-through";
+      todo.isCompleted = true;
+      chk.checked = true;
+    } else if (todo.isCompleted) {
+      console.log("falseeeee");
+      span.style.textDecoration = "none";
+      todo.isCompleted = false;
+      chk.checked = false;
+    }
+  });
 }
+/* /* /* Mark All */
 
-/* Mark All */
-
-function checkAll() {
+/* function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
   const markAll = document.getElementById("markAll");
 
@@ -188,3 +200,4 @@ function removeAll() {
     }
   }
 }
+ */

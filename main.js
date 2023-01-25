@@ -6,7 +6,6 @@ const main = document.querySelector(".main");
 
 const ul = document.querySelector("#incomplete-tasks");
 let items = [];
-let checkLists = [];
 
 function saveToLocalStorage() {
   localStorage.setItem("item", JSON.stringify(items));
@@ -14,15 +13,6 @@ function saveToLocalStorage() {
 
 (function () {
   items = JSON.parse(localStorage.getItem("item")) || [];
-  create();
-})();
-
-function saveCheckToLocalStorage() {
-  localStorage.setItem("checkList", JSON.stringify(checkLists));
-}
-
-(function () {
-  checkLists = JSON.parse(localStorage.getItem("checkList")) || [];
   create();
 })();
 
@@ -35,11 +25,11 @@ form.addEventListener("submit", (event) => {
   const item = event.target.item.value;
   console.log("item", item);
   if (item) {
-    items.push(item);
-    // e.target.reset();
+    items.push({ text: item, isCompleted: false });
+
     saveToLocalStorage();
+
     create();
-    saveCheckToLocalStorage();
   }
 });
 
@@ -58,7 +48,7 @@ function create() {
       "flex-grow-1"
     );
     const span = document.createElement("span");
-    span.textContent = item;
+    span.textContent = item.text;
 
     const editButton = document.createElement("button");
     editButton.classList.add("btn", "btn-success");
@@ -98,7 +88,7 @@ function create() {
 function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
   const updateInput = document.createElement("input");
   updateInput.type = "text";
-  updateInput.value = item;
+  updateInput.value = item.text;
   divItem.replaceChild(updateInput, itemSpan);
   const saveButton = document.createElement("button");
   saveButton.classList.add("btn", "btn-success");
@@ -112,21 +102,21 @@ function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
 
     items = items.map((theItem, i) => {
       if (index === i) {
-        return newItem;
+        return { text: newItem, isCompleted: theItem.isCompleted };
       } else {
         return theItem;
       }
     });
     saveToLocalStorage();
   });
-  //listItemChild = listItem.firstElementsChild;
+
   divBtn.replaceChild(saveButton, updateButton);
 }
 
 function handleDelete(index, listItem) {
   items.splice(index, 1);
   saveToLocalStorage();
-  saveCheckToLocalStorage();
+
   ul.removeChild(listItem);
 }
 
@@ -150,27 +140,21 @@ ul.addEventListener("change", (event) => {
 function confirmation(index, listItem, chk, span) {
   console.log("index", index);
   console.log("listItem", listItem);
-  //console.log("div", div);
+
   console.log("span", span);
   console.log("chk", chk);
-  //const checked = checkbox.checked;
-  // const li = checkbox.parentNode;
+
   if (chk.checked === true) {
     listItem.classList.add("responded");
-    //div.classList.add("text-decoration-line-through");
+
     document.getElementById("markAll").textContent = "Unmark all";
-    //const result = document.querySelector(".taskTextArea");
-    //const span = result.ELEMENT_NODE;
-    //console.log(span);
-    checkLists.push(span.textContent);
-    saveCheckToLocalStorage();
+
+    /* items.push((chk.checked = true));
+    saveToLocalStorage(); */
   } else {
     listItem.classList.remove("responded");
-    // div.classList.remove("text-decoration-line-through");
-    //checkLists.splice(span.textContent, 1);
-    checkLists.splice(checkLists.indexOf(span.textContent), 1);
 
-    saveCheckToLocalStorage();
+    checkLists.splice(checkLists.indexOf(span.textContent), 1);
   }
 }
 
@@ -196,6 +180,7 @@ function checkAll() {
       markAll.textContent = "Mark all";
     }
   }
+  saveToLocalStorage();
 }
 
 function removeAll() {

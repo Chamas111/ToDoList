@@ -25,7 +25,7 @@ form.addEventListener("submit", (event) => {
   const item = event.target.item.value;
   console.log("item", item);
   if (item) {
-    items.push(item);
+    items.push({ text: item, isCompleted: false });
 
     saveToLocalStorage();
 
@@ -48,7 +48,7 @@ function create() {
       "flex-grow-1"
     );
     const span = document.createElement("span");
-    span.textContent = item;
+    span.textContent = item.text;
 
     const editButton = document.createElement("button");
     editButton.classList.add("btn", "btn-success");
@@ -88,7 +88,7 @@ function create() {
 function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
   const updateInput = document.createElement("input");
   updateInput.type = "text";
-  updateInput.value = item;
+  updateInput.value = item.text;
   divItem.replaceChild(updateInput, itemSpan);
   const saveButton = document.createElement("button");
   saveButton.classList.add("btn", "btn-success");
@@ -102,7 +102,7 @@ function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
 
     items = items.map((theItem, i) => {
       if (index === i) {
-        return newItem;
+        return { text: newItem, isCompleted: theItem.isCompleted };
       } else {
         return theItem;
       }
@@ -149,8 +149,8 @@ function confirmation(index, listItem, chk, span) {
 
     document.getElementById("markAll").textContent = "Unmark all";
 
-    checkLists.push(span.textContent);
-    saveCheckToLocalStorage();
+    /* items.push((chk.checked = true));
+    saveToLocalStorage(); */
   } else {
     listItem.classList.remove("responded");
 
@@ -180,6 +180,7 @@ function checkAll() {
       markAll.textContent = "Mark all";
     }
   }
+  saveToLocalStorage();
 }
 
 function removeAll() {

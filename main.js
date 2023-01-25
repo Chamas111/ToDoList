@@ -23,12 +23,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const item = event.target.item.value;
-  console.log("item", item);
+  // console.log("item", item);
   if (item) {
     items.push({ text: item, isCompleted: false });
-
     saveToLocalStorage();
-
     create();
   }
 });
@@ -89,6 +87,7 @@ function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
   const updateInput = document.createElement("input");
   updateInput.type = "text";
   updateInput.value = item.text;
+  console.log("item.text", item.text);
   divItem.replaceChild(updateInput, itemSpan);
   const saveButton = document.createElement("button");
   saveButton.classList.add("btn", "btn-success");
@@ -104,7 +103,7 @@ function handleEdit(index, item, divItem, itemSpan, updateButton, divBtn) {
       if (index === i) {
         return { text: newItem, isCompleted: theItem.isCompleted };
       } else {
-        return theItem;
+        return { text: theItem, isCompleted: !theItem.isCompleted };
       }
     });
     saveToLocalStorage();
@@ -146,16 +145,13 @@ function confirmation(index, listItem, chk, span) {
 
   if (chk.checked === true) {
     listItem.classList.add("responded");
-
+    items[index].isCompleted = !items[index].isCompleted;
     document.getElementById("markAll").textContent = "Unmark all";
-
-    /* items.push((chk.checked = true));
-    saveToLocalStorage(); */
   } else {
     listItem.classList.remove("responded");
-
-    checkLists.splice(checkLists.indexOf(span.textContent), 1);
+    items[index].isCompleted = !items[index].isCompleted;
   }
+  saveToLocalStorage();
 }
 
 /* Mark All */

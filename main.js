@@ -6,14 +6,16 @@ const main = document.querySelector(".main");
 
 const ul = document.querySelector("#incomplete-tasks");
 let items = [];
+//let MarkA = true;
 
 function saveToLocalStorage() {
   localStorage.setItem("item", JSON.stringify(items));
+  // localStorage.setItem("mark", true);
 }
 
 (function () {
   items = JSON.parse(localStorage.getItem("item")) || [];
-
+  // MarkA = localStorage.getItem("item") || [];
   create();
 })();
 
@@ -135,25 +137,38 @@ function confirmation(index, listItem, chk, span) {
 }
 /* /* /* Mark All */
 
-/* function checkAll() {
+function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
   const markAll = document.getElementById("markAll");
+  console.log("1111111111111111");
+  console.log(markAll.textContent);
+  if (markAll.textContent.trim("") == "Mark all") {
+    console.log("22222222222", markAll.textContent);
 
-  if (markAll.textContent == "Mark all") {
     for (var checkbox of checkboxes) {
+      console.log("22222222222", markAll.textContent);
       if (!checkbox.checked) {
         checkbox.parentElement.classList.add("responded");
         checkbox.checked = true;
+        //items[checkbox].isCompleted = !items[checkbox].isCompleted;
       }
-
-      document.getElementById("markAll").textContent = "Unmark all";
     }
-  } else {
+    items.forEach((item, index) => {
+      items[index].isCompleted = !items[index].isCompleted;
+    });
+
+    document.getElementById("markAll").textContent = "Unmark all";
+  } else if (markAll.textContent.trim("") == "Unmark all") {
     for (var checkbox of checkboxes) {
       checkbox.checked = false;
       checkbox.parentElement.classList.remove("responded");
+      ul.style.textDecoration = "none";
+      //items[checkbox].isCompleted = !items[checkbox].isCompleted;
       markAll.textContent = "Mark all";
     }
+    items.forEach((item, index) => {
+      items[index].isCompleted = !items[index].isCompleted;
+    });
   }
   saveToLocalStorage();
 }
@@ -167,4 +182,3 @@ function removeAll() {
     }
   }
 }
- */

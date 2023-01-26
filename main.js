@@ -77,7 +77,8 @@ function create() {
       handleEdit(index, item, divWrap, span, editButton, btnWrap);
     deleteButton.onclick = () => handleDelete(index, li);
     checkbox.onclick = () => confirmation(index, li, checkbox, span);
-
+    checkbox.checked = item.isCompleted;
+    item.isCompleted && (span.style.textDecoration = "line-through");
     editButton.textContent = "Edit";
     deleteButton.textContent = "Delete";
     ul.appendChild(li);
@@ -153,8 +154,13 @@ ul.addEventListener("change", (event) => {
 } */
 function confirmation(index, listItem, chk, span) {
   console.log("hellooooooooooooooooo");
-
-  items.forEach((todo) => {
+  items[index].isCompleted = !items[index].isCompleted;
+  if (items[index].isCompleted) {
+    span.style.textDecoration = "line-through";
+  } else {
+    span.style.textDecoration = "none";
+  }
+  /* items.forEach((todo) => {
     if (!todo.isCompleted) {
       console.log("trueeeeeee");
       span.style.textDecoration = "line-through";
@@ -165,8 +171,8 @@ function confirmation(index, listItem, chk, span) {
       span.style.textDecoration = "none";
       todo.isCompleted = false;
       //chk.checked = false;
-    }
-  });
+    } */
+
   saveToLocalStorage();
 }
 /* /* /* Mark All */

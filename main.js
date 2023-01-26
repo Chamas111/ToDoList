@@ -6,16 +6,14 @@ const main = document.querySelector(".main");
 
 const ul = document.querySelector("#incomplete-tasks");
 let items = [];
-//let MarkA = true;
 
 function saveToLocalStorage() {
   localStorage.setItem("item", JSON.stringify(items));
-  // localStorage.setItem("mark", true);
 }
 
 (function () {
   items = JSON.parse(localStorage.getItem("item")) || [];
-  // MarkA = localStorage.getItem("item") || [];
+
   create();
 })();
 
@@ -125,7 +123,6 @@ function handleDelete(index, listItem) {
 }
 
 function confirmation(index, listItem, chk, span) {
-  console.log("hellooooooooooooooooo");
   items[index].isCompleted = !items[index].isCompleted;
   if (items[index].isCompleted) {
     span.style.textDecoration = "line-through";
@@ -140,17 +137,13 @@ function confirmation(index, listItem, chk, span) {
 function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
   const markAll = document.getElementById("markAll");
-  console.log("1111111111111111");
+
   console.log(markAll.textContent);
   if (markAll.textContent.trim("") == "Mark all") {
-    console.log("22222222222", markAll.textContent);
-
     for (var checkbox of checkboxes) {
-      console.log("22222222222", markAll.textContent);
       if (!checkbox.checked) {
         checkbox.parentElement.classList.add("responded");
         checkbox.checked = true;
-        //items[checkbox].isCompleted = !items[checkbox].isCompleted;
       }
     }
     items.forEach((item, index) => {
@@ -163,7 +156,7 @@ function checkAll() {
       checkbox.checked = false;
       checkbox.parentElement.classList.remove("responded");
       ul.style.textDecoration = "none";
-      //items[checkbox].isCompleted = !items[checkbox].isCompleted;
+
       markAll.textContent = "Mark all";
     }
     items.forEach((item, index) => {

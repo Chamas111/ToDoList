@@ -122,80 +122,46 @@ function handleDelete(index, listItem) {
   ul.removeChild(listItem);
 }
 
-/* checkbox confirmation */
-/* 
-ul.addEventListener("change", (event) => {
-  event.preventDefault();
-  const checkbox = event.target;
-  //const div = document.querySelector(".taskTextArea");
-  const checked = checkbox.checked;
-  const li = checkbox.parentNode;
-  if (checked) {
-    li.classList.add("responded");
-    //div.classList.add("text-decoration-line-through");
-    document.getElementById("markAll").textContent = "Unmark all";
-  } else {
-    li.classList.remove("responded");
-    // div.classList.remove("text-decoration-line-through");
-  }
-}); */
-
-/*   if (chk.checked === true) {
-    listItem.classList.add("responded");
-    items[index].isCompleted = !items[index].isCompleted;
-    document.getElementById("markAll").textContent = "Unmark all";
-    
-  } else {
-    listItem.classList.remove("responded");
-    items[index].isCompleted = !items[index].isCompleted;
-    
-  }
-  saveToLocalStorage();
-} */
 function confirmation(index, listItem, chk, span) {
-  console.log("hellooooooooooooooooo");
   items[index].isCompleted = !items[index].isCompleted;
   if (items[index].isCompleted) {
     span.style.textDecoration = "line-through";
   } else {
     span.style.textDecoration = "none";
   }
-  /* items.forEach((todo) => {
-    if (!todo.isCompleted) {
-      console.log("trueeeeeee");
-      span.style.textDecoration = "line-through";
-      todo.isCompleted = true;
-      //chk.checked = true;
-    } else if (todo.isCompleted) {
-      console.log("falseeeee");
-      span.style.textDecoration = "none";
-      todo.isCompleted = false;
-      //chk.checked = false;
-    } */
 
   saveToLocalStorage();
 }
 /* /* /* Mark All */
 
-/* function checkAll() {
+function checkAll() {
   const checkboxes = document.querySelectorAll("input[type ='checkbox']");
   const markAll = document.getElementById("markAll");
 
-  if (markAll.textContent == "Mark all") {
+  console.log(markAll.textContent);
+  if (markAll.textContent.trim("") == "Mark all") {
     for (var checkbox of checkboxes) {
       if (!checkbox.checked) {
         checkbox.parentElement.classList.add("responded");
         checkbox.checked = true;
       }
-
-      document.getElementById("markAll").textContent = "Unmark all";
     }
-  } else {
+    items.forEach((item, index) => {
+      items[index].isCompleted = !items[index].isCompleted;
+    });
+
+    document.getElementById("markAll").textContent = "Unmark all";
+  } else if (markAll.textContent.trim("") == "Unmark all") {
     for (var checkbox of checkboxes) {
       checkbox.checked = false;
       checkbox.parentElement.classList.remove("responded");
+      ul.style.textDecoration = "none";
+
       markAll.textContent = "Mark all";
     }
+    items.forEach((item, index) => {
+      items[index].isCompleted = !items[index].isCompleted;
+    });
   }
   saveToLocalStorage();
 }
@@ -209,4 +175,3 @@ function removeAll() {
     }
   }
 }
- */
